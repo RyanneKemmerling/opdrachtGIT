@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Naamcontrole via een functie</title>
+    <script type="text/javascript">
+      let fout = false;
+      let voornaam;
+      let achternaam;
+
+      function controle(ontvangen){
+        if (ontvangen == null){
+          document.write("U heeft geannuleerd.");
+          fout = true;
+        } else if (ontvangen.length == 0){
+          document.write("U heeft niets ingegeven.");
+          fout = true;
+        } else if (ontvangen.length < 2){
+          document.write("Gebruik minstens 2 tekens.");
+          fout = true;
+        } else {
+          return ontvangen.charAt(0).toUpperCase() + ontvangen.substr(1);
+        }
+      }
+
+      voornaam = prompt("Wat is je voornaam?", "Ryanne");
+      controle(voornaam);
+
+      if (fout == false){
+        achternaam = prompt("Wat is je voornaam?", "Kemmerling");
+        controle(achternaam);
+      }
+
+      if (fout == false) {
+        document.write(`<p>Hey ${voornaam} ${achternaam}</p>`);
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
